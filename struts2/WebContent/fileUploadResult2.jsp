@@ -12,7 +12,7 @@
  username: <s:property value="username"/><br>
  
  <s:iterator value="fileFileName" id="f">
- file: <s:property value="#f"/><br>
+ file: <s:property value="#f.toUpperCase()"/><br>
  </s:iterator>
 
 </body>
