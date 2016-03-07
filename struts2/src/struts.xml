@@ -81,6 +81,10 @@
 			<result name="success">/fileUploadResult.jsp</result>
 		</action>
 		
+		<action name="fileUpload2" class="com.shengsiyuan.struts2.UploadAction2">
+			<result name="success">/fileUploadResult2.jsp</result>
+		</action>
+		
 	</package>
 	
 	<package name="test" extends="struts-default" namespace="/theNamespace">
