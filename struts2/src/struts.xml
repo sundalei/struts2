@@ -4,9 +4,9 @@
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-
-	<package name="struts2" extends="struts-default">
+	<constant name="struts.multipart.maxSize" value="104857600"></constant>
 	
+	<package name="struts2" extends="struts-default">
 		<interceptors>
 			<interceptor name="theInterceptor1" class="com.shengsiyuan.interceptor.TheInterceptor1">
 				<param name="test">shengsiyuan</param>
