@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.io.OutputStream;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -59,26 +59,14 @@ public class UploadAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
-		String root = ServletActionContext.getRequest().getSession().getServletContext().getRealPath("/upload");
+		String root = ServletActionContext.getRequest().getSession().getServletContext().getRealPath("upload");
 		
-		InputStream is = new FileInputStream(file);
-		
-		System.out.println(file.getAbsolutePath());
-		System.out.println(fileFileName);
-		File destFile = new File(root, fileFileName);
-		OutputStream os = new FileOutputStream(destFile);
-		
-		byte[] buffer = new byte[400];
-		int length = 0;
-		
-		while(-1 != (length = is.read(buffer, 0, 400))) {
-			
-			os.write(buffer, 0, length);
-//			Thread.sleep(1000);
+		File destDirectory = new File(root);
+		if(!destDirectory.exists()) {
+			destDirectory.mkdirs();
 		}
-		
-		is.close();
-		os.close();
+		File destFile = new File(destDirectory, fileFileName);
+		FileUtils.copyFile(file, destFile);
 		
 		return SUCCESS;
 	}

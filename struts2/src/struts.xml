@@ -4,7 +4,9 @@
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+	<!--  
 	<constant name="struts.multipart.maxSize" value="104857600"></constant>
+	-->
 	
 	<package name="struts2" extends="struts-default">
 		<interceptors>
@@ -28,7 +30,7 @@
 			
 		</interceptors>
 		
-		<!--  <default-interceptor-ref name="myDefaultInterceptorStack"></default-interceptor-ref>-->
+		<!--  <default-interceptor-ref name="myDefaultInterceptorStack"></default-interceptor-ref> -->
 		
 		<global-results>
 			<result name="usernameInvalid">/usernameInvalid.jsp</result>
@@ -83,6 +85,13 @@
 		
 		<action name="fileUpload2" class="com.shengsiyuan.struts2.UploadAction2">
 			<result name="success">/fileUploadResult2.jsp</result>
+		</action>
+		
+		<action name="downloadFile" class="com.shengsiyuan.struts2.DownloadAction">
+			<result type="stream">
+				<param name="contentDisposition">attachment;filename="RELEASE-NOTES"</param>
+				<param name="inputName">downloadFile</param>
+			</result>
 		</action>
 		
 	</package>
