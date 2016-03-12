@@ -87,9 +87,9 @@
 			<result name="success">/fileUploadResult2.jsp</result>
 		</action>
 		
-		<action name="downloadFile" class="com.shengsiyuan.struts2.DownloadAction">
+		<action name="downloadFile" class="com.shengsiyuan.struts2.DownloadAction2">
 			<result type="stream">
-				<param name="contentDisposition">attachment;filename="RELEASE-NOTES"</param>
+				<param name="contentDisposition">attachment;filename=${filename}</param>
 				<param name="inputName">downloadFile</param>
 			</result>
 		</action>

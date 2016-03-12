@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="downloadFile.action">下载文件</a>
+	<a href="downloadFile.action?number=1">下载文件</a>
 </body>
 </html>
