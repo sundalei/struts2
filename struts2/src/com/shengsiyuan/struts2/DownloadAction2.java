@@ -34,13 +34,19 @@ public class DownloadAction2 extends ActionSupport {
 	}
 
 	public InputStream getDownloadFile() {
-		if(number == 1) {
-			this.filename = "setup_win_2.0.7.rar";
-			return ServletActionContext.getServletContext().getResourceAsStream("/upload/setup_win_2.0.7.rar");
-		} else {
-			this.filename = "eMule0.50a-Installer.exe";
-			return ServletActionContext.getServletContext().getResourceAsStream("/upload/eMule0.50a-Installer.exe");
+		try {
+			if (number == 1) {
+				this.filename = "中文软件.rar";
+				this.filename = new String(this.filename.getBytes("UTF-8"), "ISO-8859-1");
+				return ServletActionContext.getServletContext().getResourceAsStream("/upload/中文软件.rar");
+			} else {
+				this.filename = "eMule0.50a-Installer.exe";
+				return ServletActionContext.getServletContext().getResourceAsStream("/upload/eMule0.50a-Installer.exe");
+			}
+		} catch (Exception ex) {
+
 		}
+		return null;
 	}
 
 	@Override

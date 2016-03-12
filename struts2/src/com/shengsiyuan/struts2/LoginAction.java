@@ -3,10 +3,10 @@ package com.shengsiyuan.struts2;
 import java.util.Date;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.InterceptorRef;
+import org.apache.struts2.convention.annotation.ParentPackage;
+import org.apache.struts2.convention.annotation.Result;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -14,6 +14,9 @@ import com.shengsiyuan.bean.User;
 import com.shengsiyuan.service.LoginService;
 import com.shengsiyuan.service.impl.LoginServiceImpl;
 
+@ParentPackage("struts-default")
+@Action(value="login", results={@Result(name="success", location="/login.jsp"),
+		@Result(name="input", location="/login.jsp")})
 public class LoginAction extends ActionSupport {
 	
 	private static final long serialVersionUID = 1L;
