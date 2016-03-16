@@ -11,7 +11,7 @@
 
 <s:fielderror/>
 
-<form action="registerAction">
+<form action="registerAction.action">
 
 username:<input type="text" name="username"><br>
 password:<input type="password" name="password"><br>
