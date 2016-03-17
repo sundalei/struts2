@@ -1,6 +1,12 @@
 package com.shengsiyuan.exception;
 
 public class UsernameException extends Exception {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String message;
 	
 	public UsernameException(String message) {

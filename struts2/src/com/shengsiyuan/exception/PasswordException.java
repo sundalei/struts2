@@ -1,6 +1,11 @@
 package com.shengsiyuan.exception;
 
 public class PasswordException extends Exception {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String message;
 
 	public PasswordException(String message) {
